@@ -1,30 +1,61 @@
-/* Sidebar.css */
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #f8f9fa;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Google Chrome Tab Style for Active Link */
+.sidebar ul li a.active {
+  background-color: #E8F0FE; /* Lighter blue to mimic Chrome's active tab color */
+  color: #202124; /* Google's text color for active tabs */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow for a more subtle elevation effect */
+  border-top-left-radius: 15px; /* Rounded corners at the top to mimic a tab */
+  border-top-right-radius: 15px;
+  padding: 10px 15px; /* Adjust padding as needed */
+  display: block; /* Ensure it covers the area like a tab */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
   }
-  
-  .sidebar h2 {
-    text-align: center;
-  }
-  
+
   .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+    display: flex;
+    justify-content: space-around;
   }
-  
+
   .sidebar ul li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
+}
