@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Sidebar.css';
-
+import '../styles/Sidebar.css';
+import '../styles/App.css'
 const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
