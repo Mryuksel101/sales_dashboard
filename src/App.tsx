@@ -9,9 +9,9 @@ import './styles/App.css'
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="app">
+      <div className="flex h-screen">
         <Sidebar />
-        <div className="content">
+        <div className="p-4 ml-64"> {/* ml-64 eklenmiş, Drawer'ın genişliğine uygun */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -21,6 +21,6 @@ const App: React.FC = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
