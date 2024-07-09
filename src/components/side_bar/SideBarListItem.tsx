@@ -9,7 +9,7 @@ const SideBarListItem: React.FC<SideBarListItemProps> = ({to, label}) => {
         <NavLink
             to={to}
             className={({ isActive }) =>
-            `hover:bg-gray-700 p-2 rounded-xl block  ${isActive ? 'bg-gray-700' : ''}`
+            `hover:bg-gray-700 rounded-full block py-4 pl-4 pr-6 text-sm text-[#1C182B] font-semibold tracking-tight ${isActive ? 'bg-[#E8F0FE]' : ''}`
             }
             end
         >
