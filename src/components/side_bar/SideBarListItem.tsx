@@ -1,11 +1,13 @@
+import { IconType } from 'react-icons';
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 
 interface SideBarListItemProps {
     to: string;
     label: string;
+    icon: IconType;
 }
 
-const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label }) => {
+const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label, icon }) => {
     return (
         <li className="mb-2">
             <NavLink
@@ -17,7 +19,9 @@ const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label }) => {
                 }
                 end
             >
+                {icon({ className: 'mr-3' , size: 24})}
                 {label}
+
             </NavLink>
         </li>
     );

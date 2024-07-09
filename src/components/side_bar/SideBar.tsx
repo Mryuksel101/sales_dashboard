@@ -9,7 +9,7 @@ const SideBar: React.FC = () => {
       <ul>
         {
           sideBarListItems.map((item) => {
-            return <SideBarListItem to={item.to} label={item.label}/>
+            return <SideBarListItem to={item.to} label={item.label} icon={item.icon}/>
           })  
         }
       </ul>
