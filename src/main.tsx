@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import About from './pages/About.tsx';
@@ -18,7 +19,7 @@ const BrowserRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Navigate to="/home" replace />,
       },
       {
         path: "/home",
