@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
       <div className="w-full max-w-md">
         <div className="bg-white shadow-2xl rounded-3xl p-12 space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-light text-gray-800">Dashboard Sign In</h2>
+            <h2 className="text-3xl font-light text-gray-800">Sign In</h2>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
