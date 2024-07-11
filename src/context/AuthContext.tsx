@@ -11,12 +11,12 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<any>(null);
 
-    const signin = (newUser: string, callback: () => void) => {
+    const signin = (newUser: string, callback?: () => void) => {
         setUser(newUser);
-        callback();
+        callback && callback();
     };
 
-    const signout = (callback: () => void) => {
+    const signout = (callback: (() => void)) => {
         setUser(null);
         callback();
     };

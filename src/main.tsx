@@ -12,6 +12,7 @@ import Contact from './pages/Contact.tsx';
 import Home from './pages/Home.tsx';
 import SignIn from './pages/SignIn.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
+import { AuthProvider } from './context/AuthContext.tsx';
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const BrowserRouter = createBrowserRouter([
     element: <App />,
     children: [
       {
-        element: <ProtectedRoute isAuthenticated={false} />,
+        element: <ProtectedRoute/>,
         children: [
           {
             index: true,
@@ -52,7 +53,9 @@ const BrowserRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={BrowserRouter}>
-    </RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={BrowserRouter}>
+      </RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

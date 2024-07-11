@@ -12,7 +12,7 @@ const SignIn: React.FC = () => {
 
     let login = (e: React.FormEvent) => {
         e.preventDefault();
-        auth?.signin(username, () => {
+        auth?.signin("mustafa", () => {
             navigate(from);
         });
     };
