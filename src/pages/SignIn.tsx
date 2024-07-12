@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -13,6 +14,12 @@ const SignIn: React.FC = () => {
     console.log('Email:', formData.email);
     console.log('Password:', formData.password);
   };
+
+  const auth = useAuth();
+
+  const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
+    auth?.signin(formData.email);
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200">
@@ -48,6 +55,7 @@ const SignIn: React.FC = () => {
             </div>
             <div>
               <button
+                onClick={handleSignIn}
                 type="submit"
                 className="w-full bg-blue-500 text-white rounded-lg px-4 py-3 font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-300"
               >
