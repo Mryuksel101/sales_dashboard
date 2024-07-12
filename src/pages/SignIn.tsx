@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-0 text-sm"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-0 text-sm"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
