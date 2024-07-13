@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-
+import {useNavigate} from "react-router-dom";
 const SignIn: React.FC = () => {
-  const [formData, setFormData] = useState({name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -20,7 +21,14 @@ const SignIn: React.FC = () => {
   const auth = useAuth();
 
   const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
-    auth?.signin({name: formData.name, email: formData.email, password: formData.password, profilePicture: "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftr.linkedin.com%2Fin%2Fbilal-atmaca-081b483b&psig=AOvVaw2nOcQIGJJwpvRcN_7mGmXf&ust=1720946475077000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCIi1z4LPo4cDFQAAAAAdAAAAABAE" });
+    auth?.signin(
+      { name: formData.name, email: formData.email, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
+      () => {
+        // Redirect to the home page
+        navigate('/');
+        console.log('User signed in');
+      }
+    );
   }
 
   return (
