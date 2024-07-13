@@ -1,5 +1,6 @@
 import { IconType } from 'react-icons';
-import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 interface SideBarListItemProps {
     to: string;
@@ -8,20 +9,23 @@ interface SideBarListItemProps {
 }
 
 const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label, icon }) => {
+    const isActive = useLocation().pathname === to;
+
     return (
-        <li className="mb-2">
+        <li className="mb-3">
             <NavLink
                 to={to}
-                className={({ isActive }) =>
-                    `flex items-center p-4 text-sm font-semibold tracking-tight rounded-full transition-colors duration-200 ${
-                        isActive ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:bg-gray-300'
-                    }`
-                }
+                className={`flex items-center p-3 text-base rounded-3xl transition-colors duration-200 ${
+                    isActive
+                        ? 'bg-blue-500 text-white'
+                        : 'text-gray-500 hover:bg-gray-100 hover:text-gray-800'
+                }`}
                 end
             >
-                {icon({ className: 'mr-3' , size: 24})}
-                {label}
-
+                <span className="mr-3">
+                    {icon({ size: 20 })}
+                </span>
+                <span className="truncate">{label}</span>
             </NavLink>
         </li>
     );
