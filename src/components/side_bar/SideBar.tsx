@@ -8,8 +8,8 @@ const SideBar: React.FC = () => {
       <h2 className="text-xl font-bold mb-4">Menu</h2>
       <ul>
         {
-          sideBarListItems.map((item) => {
-            return <SideBarListItem to={item.to} label={item.label} icon={item.icon}/>
+          sideBarListItems.map((item, index) => {
+            return <SideBarListItem to={item.to} label={item.label} icon={item.icon} key={index}/>
           })  
         }
       </ul>
