@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         <img src={profilePicture} alt="Avatar" className="w-14 h-14 rounded-full mr-4" />
         <p className="text-xl">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
-      <p className='mb-8'>Welcome to the home page!</p>
+      <p className='mb-8 mt-1'>Welcome to the home page!</p>
       {
         saleHistoryData.map((sale) => (
           <SalesReportListItem key={sale.id} sale={sale} />
