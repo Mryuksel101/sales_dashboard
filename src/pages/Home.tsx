@@ -14,12 +14,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold">Home Page</h1>
-      <div className="mt-4 flex items-center">
-        <img src={profilePicture} alt="Avatar" className="w-10 h-10 rounded-full mr-4" />
-        <p className="text-lg">Welcome, <span className="font-semibold">{name}</span>!</p>
+      <div className="flex items-center">
+        <img src={profilePicture} alt="Avatar" className="w-14 h-14 rounded-full mr-4" />
+        <p className="text-xl">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
-      <p>Welcome to the home page!</p>
+      <p className='mb-8'>Welcome to the home page!</p>
       {
         saleHistoryData.map((sale) => (
           <SalesReportListItem key={sale.id} sale={sale} />
