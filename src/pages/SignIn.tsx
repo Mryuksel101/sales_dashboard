@@ -20,7 +20,7 @@ const SignIn: React.FC = () => {
   const auth = useAuth();
 
   const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
-    auth?.signin({name: formData.name, email: formData.email, password: formData.password });
+    auth?.signin({name: formData.name, email: formData.email, password: formData.password, profiePicture: "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftr.linkedin.com%2Fin%2Fbilal-atmaca-081b483b&psig=AOvVaw2nOcQIGJJwpvRcN_7mGmXf&ust=1720946475077000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCIi1z4LPo4cDFQAAAAAdAAAAABAE" });
   }
 
   return (
