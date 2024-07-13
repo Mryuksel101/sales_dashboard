@@ -1,17 +1,18 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { IUser } from '../models/userModel';
 
 interface AuthContextType {
-    user: any;
-    signin: (user: string, callback?: () => void) => void;
+    user: IUser | null;
+    signin: (user: IUser, callback?: () => void) => void;
     signout: (callback?: () => void) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<IUser | null>(null);
 
-    const signin = (newUser: string, callback?: () => void) => {
+    const signin = (newUser: IUser, callback?: () => void) => {
         setUser(newUser);
         callback && callback();
     };

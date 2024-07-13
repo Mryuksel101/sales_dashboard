@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 const SignIn: React.FC = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({name: '', email: '', password: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -13,12 +13,14 @@ const SignIn: React.FC = () => {
     e.preventDefault();
     console.log('Email:', formData.email);
     console.log('Password:', formData.password);
+    console.log('Name:', formData.name);
+
   };
 
   const auth = useAuth();
 
   const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
-    auth?.signin(formData.email);
+    auth?.signin({name: formData.name, email: formData.email, password: formData.password });
   }
 
   return (
