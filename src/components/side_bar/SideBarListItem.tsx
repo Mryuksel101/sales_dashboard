@@ -15,10 +15,10 @@ const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label, icon }) =>
         <li className="mb-3">
             <NavLink
                 to={to}
-                className={`flex items-center p-3 text-base rounded-3xl transition-colors duration-200 ${
+                className={`flex items-center p-3 text-base rounded-3xl transition-colors duration-200 leading-tight ${
                     isActive
                         ? 'bg-blue-500 text-white'
-                        : 'text-gray-500 hover:bg-gray-100'
+                        : 'text-black hover:bg-gray-100'
                 }`}
                 end
             >

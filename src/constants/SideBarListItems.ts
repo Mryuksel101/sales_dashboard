@@ -1,7 +1,7 @@
 import SideBarListItemModel from "../models/SideBarListItemModel";
-import { MdHome, MdInfo, MdContactMail } from 'react-icons/md';
+import { CiHome, CiCircleInfo, CiMail } from 'react-icons/ci';
 export const sideBarListItems: SideBarListItemModel[] = [
-    new SideBarListItemModel('/home', 'Home', MdHome),
-    new SideBarListItemModel('/about', 'About', MdInfo),
-    new SideBarListItemModel('/contact', 'Contact', MdContactMail)
+    new SideBarListItemModel('/home', 'Home', CiHome),
+    new SideBarListItemModel('/about', 'About', CiCircleInfo),
+    new SideBarListItemModel('/contact', 'Contact', CiMail)
 ];
