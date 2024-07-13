@@ -13,11 +13,16 @@ import Home from './pages/Home.tsx';
 import SignIn from './pages/SignIn.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
+import { getDataSales } from './services/salesDataService.ts';
 
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    loader: async () => {
+      const data = await getDataSales();
+      return { data };
+    },
     children: [
       {
         element: <ProtectedRoute/>,
