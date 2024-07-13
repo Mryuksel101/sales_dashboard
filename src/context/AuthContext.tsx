@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
 
     const signin = (newUser: IUser, callback?: () => void) => {
+        // try catch block to handle errors
         setUser(newUser);
         callback && callback();
     };

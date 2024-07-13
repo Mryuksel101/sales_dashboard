@@ -3,7 +3,10 @@ import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = (): JSX.Element => {
   const auth = useAuth();
-  return auth?.user!=null ? <Outlet /> : <Navigate to="/signin" />;
+  if (auth==null || auth.user == null) {
+    return <Navigate to="/signin" />;
+  }
+  return <Outlet />;
 };
 
 export default ProtectedRoute;
