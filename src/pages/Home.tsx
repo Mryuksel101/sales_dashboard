@@ -2,10 +2,13 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useLoaderData } from 'react-router-dom';
+import { SaleHistory } from '../models/SaleHistory';
+import SalesReportListItem from '../components/sales_report/salesReportListItem';
 
 const Home: React.FC = () => {
   const auth = useAuth();
-  const data = useLoaderData();
+  const saleHistoryData: SaleHistory[] = useLoaderData() as SaleHistory[];
+  console.log(saleHistoryData);
   // Assuming `auth.user` has `name` and `avatarUrl` properties
   const { name, profilePicture} = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
 
@@ -17,7 +20,11 @@ const Home: React.FC = () => {
         <p className="text-lg">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
       <p>Welcome to the home page!</p>
-      <p>{JSON.stringify(data)}</p>
+      {
+        saleHistoryData.map((sale) => (
+          <SalesReportListItem key={sale.id} sale={sale} />
+        ))
+      }
     </div>
   );
 };

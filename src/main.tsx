@@ -29,9 +29,7 @@ const BrowserRouter = createBrowserRouter([
           },
           {
             loader: async () => {
-              const data = await getDataSales();
-              return { data };
-
+              return getDataSales();
             },
             path: "/home",
             element: <Home />,
@@ -58,10 +56,8 @@ const BrowserRouter = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={BrowserRouter}>
-      </RouterProvider>
-    </AuthProvider>
-  </React.StrictMode>,
+  <AuthProvider>
+  <RouterProvider router={BrowserRouter}>
+  </RouterProvider>
+</AuthProvider>
 )
