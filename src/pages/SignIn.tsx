@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ const SignIn: React.FC = () => {
     console.log('Email:', formData.email);
     console.log('Password:', formData.password);
     console.log('Name:', formData.name);
-
   };
 
   const auth = useAuth();
@@ -47,7 +47,7 @@ const SignIn: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
+                className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
@@ -59,7 +59,7 @@ const SignIn: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
+                className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
@@ -71,7 +71,7 @@ const SignIn: React.FC = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
+                className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
@@ -79,7 +79,7 @@ const SignIn: React.FC = () => {
               <button
                 onClick={handleSignIn}
                 type="submit"
-                className="w-full bg-blue-500 text-white rounded-lg px-4 py-3 font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-300"
+                className="w-full bg-blue-500 text-white rounded-full px-4 py-3 font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-300"
               >
                 Sign In
               </button>
