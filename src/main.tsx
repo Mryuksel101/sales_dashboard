@@ -19,10 +19,6 @@ const BrowserRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: async () => {
-      const data = await getDataSales();
-      return { data };
-    },
     children: [
       {
         element: <ProtectedRoute/>,
@@ -32,6 +28,11 @@ const BrowserRouter = createBrowserRouter([
             element: <Navigate to="/home" replace />,
           },
           {
+            loader: async () => {
+              const data = await getDataSales();
+              return { data };
+
+            },
             path: "/home",
             element: <Home />,
           },

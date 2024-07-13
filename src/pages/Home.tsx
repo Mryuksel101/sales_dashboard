@@ -1,9 +1,11 @@
 // Home.tsx
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useLoaderData } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const auth = useAuth();
+  const data = useLoaderData();
   // Assuming `auth.user` has `name` and `avatarUrl` properties
   const { name, profilePicture} = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
 
@@ -15,7 +17,7 @@ const Home: React.FC = () => {
         <p className="text-lg">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
       <p>Welcome to the home page!</p>
-      {/* Other paragraphs */}  
+      <p>{JSON.stringify(data)}</p>
     </div>
   );
 };
