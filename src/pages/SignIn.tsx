@@ -33,6 +33,18 @@ const SignIn: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name"
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
+                required
+              />
+            </div>
+            <div>
+              <input
                 type="email"
                 id="email"
                 name="email"
