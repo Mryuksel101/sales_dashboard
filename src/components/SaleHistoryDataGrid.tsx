@@ -13,7 +13,7 @@ const columns: GridColDef[] = [
   { field: 'category', headerName: 'Kategori', width: 150 },
   { field: 'quantity', headerName: 'Adet', width: 110 },
   {
-    field: 'editableField',
+    field: 'editableQuantity',
     headerName: 'Adet Gir',
     width: 150,
     editable: true,
@@ -28,7 +28,13 @@ const SaleHistoryDataGrid: React.FC = () => {
   const [editedRows, setEditedRows] = React.useState<GridRowModel[]>([]);
 
   const processRowUpdate = React.useCallback(
-    (newRow: GridRowModel) => {
+    (newRow: GridRowModel, oldRow: GridRowModel) => {
+      // Editable text'e girilen sayı Row'daki adetten büyük olmaması için kontrol
+      const isValueValid = Number(oldRow.quantity) <= newRow.editableQuantity;
+      if (!isValueValid) {
+        alert('Girilen değer, mevcut adetten büyük olamaz. Mevcut değer şu anda: ' + oldRow.quantity);
+        return oldRow;
+      }
       setEditedRows((prevState) => {
         const newState = [...prevState];
         const index = newState.findIndex((row) => row.id === newRow.id);
