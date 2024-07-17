@@ -1,12 +1,14 @@
 import React from 'react';
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import SideBar from './components/side_bar/SideBar';
+import HamburgerMenu from './components/hamburger_menu/HamburgerMenu';
 const App: React.FC = () => {
     return (
         <>
             <SideBar />
-            <div className="p-4 ml-64"> {/* ml-64 eklenmiş, Drawer'ın genişliğine uygun */}
+            <HamburgerMenu />
+            <div className="p-4 ml-5 md:ml-64"> {/* ml-64 eklenmiş, Drawer'ın genişliğine uygun */}
                 <Outlet />
             </div>
         </>
