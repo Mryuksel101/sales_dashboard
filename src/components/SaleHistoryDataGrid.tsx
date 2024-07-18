@@ -18,7 +18,7 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
     type: 'number',
-    align: 'center',
+    align: 'left',
     description: 'Adet Giriniz',
   },
 ];
@@ -57,12 +57,15 @@ const SaleHistoryDataGrid: React.FC = () => {
   };
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        processRowUpdate={processRowUpdate}
-      />
+    <div className="grow border-2 border-sky-500 " style={{ width: '100%', }}>
+      <div>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          processRowUpdate={processRowUpdate}
+        //sx={{ '& .MuiDataGrid-cell--editable': { backgroundColor: 'rgba(0, 0, 0, 0.04)' } }}
+        />
+      </div>
       <Button
         variant="contained"
         color="primary"
@@ -71,7 +74,7 @@ const SaleHistoryDataGrid: React.FC = () => {
       >
         Değişiklikleri Kaydet
       </Button>
-    </div>
+    </div >
   );
 };
 
