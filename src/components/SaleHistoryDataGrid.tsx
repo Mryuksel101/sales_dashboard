@@ -18,7 +18,7 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
     type: 'number',
-    align: 'center',
+    align: 'left',
     description: 'Adet Giriniz',
   },
 ];
@@ -74,7 +74,7 @@ const SaleHistoryDataGrid: React.FC = () => {
       >
         Değişiklikleri Kaydet
       </Button>
-    </div>
+    </div >
   );
 };
 
