@@ -57,7 +57,10 @@ const SaleHistoryDataGrid: React.FC = () => {
   };
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{
+      height: 'calc(100vh - 205px)',
+      width: '100%'
+    }}>
       <DataGrid
         rows={rows}
         columns={columns}

@@ -6,7 +6,7 @@ import SaleHistoryDataGrid from '../components/SaleHistoryDataGrid';
 const Home: React.FC = () => {
   const auth = useAuth();
   // Assuming `auth.user` has `name` and `avatarUrl` properties
-  const { name, profilePicture} = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
+  const { name, profilePicture } = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
 
   return (
     <div className="p-4">
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         <p className="text-xl">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
       <p className='mb-8 mt-1'>Welcome to the home page!</p>
-      <SaleHistoryDataGrid/>
+      <SaleHistoryDataGrid />
     </div>
   );
 };
