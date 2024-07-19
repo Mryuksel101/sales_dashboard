@@ -66,14 +66,14 @@ const SaleHistoryDataGrid: React.FC = () => {
         columns={columns}
         processRowUpdate={processRowUpdate}
       />
-      <Button
-        variant="contained"
-        color="primary"
+      <button
         onClick={handleApiCall}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '40px', marginBottom: '20px' }}
+        className={'rounded-3xl bg-blue-500 p-3 text-base leading-tight text-white hover:bg-blue-600 focus:ring-2'}
       >
         Değişiklikleri Kaydet
-      </Button>
+      </button>
+
     </div >
   );
 };
