@@ -65,6 +65,17 @@ const SaleHistoryDataGrid: React.FC = () => {
         rows={rows}
         columns={columns}
         processRowUpdate={processRowUpdate}
+        sx={
+          {
+            '& .MuiDataGrid-cell--editable': {
+              backgroundColor: 'rgba(0, 0, 0, 0.04)',
+              color: '#000',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.08)',
+              }
+            },
+          }
+        }
       />
       <button
         onClick={handleApiCall}
