@@ -2,7 +2,6 @@ import * as React from 'react';
 import { DataGrid, GridColDef, GridRowModel } from '@mui/x-data-grid';
 import { SaleHistory } from '../models/SaleHistory';
 import { useLoaderData } from 'react-router-dom';
-import { Button } from '@mui/material';
 
 // Sütun tanımları
 const columns: GridColDef[] = [
