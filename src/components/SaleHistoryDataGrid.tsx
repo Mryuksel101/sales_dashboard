@@ -90,7 +90,7 @@ const SaleHistoryDataGrid: React.FC = () => {
       <button
         onClick={handleApiCall}
         style={{ marginTop: '40px', marginBottom: '20px' }}
-        className={'rounded-3xl bg-blue-500 p-3 text-base leading-tight text-white hover:bg-blue-600 focus:ring-2'}
+        className={'rounded-3xl bg-blue-500 px-9 py-3 text-base leading-tight text-white hover:bg-blue-600 focus:ring-2'}
       >
         Değişiklikleri Kaydet
       </button>
