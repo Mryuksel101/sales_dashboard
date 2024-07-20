@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { sideBarListItems } from '../../constants/SideBarListItems';
+import SideBarListItem from '../side_bar/SideBarListItem';
 
 const HamburgerMenu: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,12 @@ const HamburgerMenu: React.FC = () => {
                     }`}
             >
                 <ul className="flex flex-col p-4 pt-16">
-                    <li className="py-2"><Link to="/" onClick={toggleMenu}>Home</Link></li>
-                    <li className="py-2"><Link to="/profile" onClick={toggleMenu}>Profile</Link></li>
-                    <li className="py-2"><Link to="/settings" onClick={toggleMenu}>Settings</Link></li>
-                    <li className="py-2"><Link to="/logout" onClick={toggleMenu}>Logout</Link></li>
+
+                    {
+                        sideBarListItems.map((item, index) => {
+                            return <SideBarListItem to={item.to} label={item.label} icon={item.icon} key={index} />
+                        })
+                    }
                 </ul>
             </div>
         </div>
