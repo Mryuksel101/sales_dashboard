@@ -24,6 +24,7 @@ const columns: GridColDef[] = [
 
 const SaleHistoryDataGrid: React.FC = () => {
   const rows: SaleHistory[] = useLoaderData() as SaleHistory[];
+  const [isSaving, setIsSaving] = React.useState(false);
   const [editedRows, setEditedRows] = React.useState<GridRowModel[]>([]);
 
   const processRowUpdate = React.useCallback(
@@ -53,6 +54,12 @@ const SaleHistoryDataGrid: React.FC = () => {
     // API çağrısı burada yapılacak
     console.log('API çağrısı yapılıyor...', editedRows);
     // Örnek: axios.post('/api/update', editedRows);
+
+    setIsSaving(true); // Saving durumunu başlat
+    // 2 saniye bekleyin
+    setTimeout(() => {
+      setIsSaving(false); // Saving durumunu durdur
+    }, 2000);
   };
 
   return (
@@ -61,6 +68,7 @@ const SaleHistoryDataGrid: React.FC = () => {
       width: '100%'
     }}>
       <DataGrid
+        loading={isSaving}
         rows={rows}
         columns={columns}
         processRowUpdate={processRowUpdate}
@@ -90,9 +98,10 @@ const SaleHistoryDataGrid: React.FC = () => {
       <button
         onClick={handleApiCall}
         style={{ marginTop: '40px', marginBottom: '20px' }}
-        className={'rounded-3xl bg-blue-500 px-9 py-3 text-base leading-tight text-white hover:bg-blue-600 focus:ring-2'}
+        className={`rounded-3xl bg-blue-500 px-9 py-3 text-base leading-tight text-white ${isSaving ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-600'} focus:ring-2`}
+        disabled={isSaving} // Saving durumunda butonu devre dışı bırak
       >
-        Değişiklikleri Kaydet
+        {isSaving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}
       </button>
 
     </div >
