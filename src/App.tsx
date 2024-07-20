@@ -8,7 +8,7 @@ const App: React.FC = () => {
         <>
             <SideBar />
             <HamburgerMenu />
-            <div className="p-4 ml-5 md:ml-64"> {/* ml-64 eklenmiş, Drawer'ın genişliğine uygun */}
+            <div className="md:ml-64 p-4 md:p-4"> {/* ml-64 eklenmiş, Drawer'ın genişliğine uygun */}
                 <Outlet />
             </div>
         </>

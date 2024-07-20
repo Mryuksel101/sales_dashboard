@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const { name, profilePicture } = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
 
   return (
-    <div className="p-4">
+    <div>
       <div className="flex items-center flex-none">
         <img src={profilePicture} alt="Avatar" className="w-14 h-14 rounded-full mr-4" />
         <p className="text-xl">Welcome, <span className="font-semibold">{name}</span>!</p>
