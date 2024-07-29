@@ -17,7 +17,7 @@ const HamburgerMenu: React.FC = () => {
                 {isOpen ? <IoClose /> : <FaBars />}
             </button>
             <div
-                className={`fixed top-15 left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transition-transform duration-300 ease-in-out transform rounded-r-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-15 left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transform-gpu duration-300 ease-in-out rounded-r-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <ul className="flex flex-col p-4 pt-16">
