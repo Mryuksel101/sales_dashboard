@@ -23,7 +23,7 @@ const HamburgerMenu: React.FC = () => {
             </div> */}
 
             <div
-                className={`fixed top-0 left-0 w-full h-full bg-black z-40 transition-opacity duration-500 ease-in-out will-change-transform transform ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                className={`fixed top-0 left-0 w-full h-full bg-black z-40 transform-gpu transition-opacity duration-500 ease-in-out will-change-transform ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}
                 onClick={
                     toggleMenu
@@ -31,7 +31,7 @@ const HamburgerMenu: React.FC = () => {
             </div>
 
             <div
-                className={`fixed top-15 left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transform-gpu duration-300 ease-in-out rounded-r-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-15 left-0 w-64 h-full bg-gray-100 transition-transform shadow-lg z-50 transform-gpu duration-300 ease-in-out rounded-r-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <ul className="flex flex-col p-4 pt-16">
