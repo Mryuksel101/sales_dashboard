@@ -31,7 +31,7 @@ const SaleHistoryDataGrid: React.FC = () => {
     (newRow: GridRowModel, oldRow: GridRowModel) => {
       // Editable text'e girilen sayı Row'daki adetten büyük olmaması için kontrol
       const isValueValid = Number(oldRow.quantity) <= newRow.editableQuantity;
-      if (!isValueValid) {
+      if (isValueValid) {
         alert('Girilen değer, mevcut adetten büyük olamaz. Mevcut değer şu anda: ' + oldRow.quantity);
         return oldRow;
       }
