@@ -16,7 +16,7 @@ const HamburgerMenu: React.FC = () => {
                 {isOpen ? <IoClose /> : <FaBars />}
             </button>
 
-            {/* <div
+            {/* <div d
                 className={`fixed top-0 left-0 w-full h-full bg-black z-40 transition-opacity duration-500 ease-in-out transform ${isOpen ? 'opacity-50 block' : 'opacity-0 hidden'
                     }`}
                 onClick={toggleMenu}>
