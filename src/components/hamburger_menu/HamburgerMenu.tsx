@@ -37,7 +37,7 @@ const HamburgerMenu: React.FC = () => {
             </div>
 
             <div
-                className={`left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transition-transform rounded-r-2xl ease-in
+                className={`left-0 w-64 h-full bg-gray-100 z-50 transition-transform rounded-r-2xl ease-in
                     }`}
                 style={{
                     position: 'fixed',
