@@ -1,5 +1,4 @@
 import React from 'react';
-import { Outlet } from "react-router-dom";
 
 import SideBar from './components/side_bar/SideBar';
 import HamburgerMenu from './components/hamburger_menu/HamburgerMenu';
