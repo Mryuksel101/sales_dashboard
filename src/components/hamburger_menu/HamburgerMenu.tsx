@@ -30,6 +30,7 @@ const HamburgerMenu: React.FC = () => {
                 }
                 style={{
                     willChange: 'opacity',
+                    backfaceVisibility: 'hidden',
                 }}
 
             >
@@ -40,6 +41,7 @@ const HamburgerMenu: React.FC = () => {
                     }`}
                 style={{
                     willChange: 'transform',
+                    backfaceVisibility: 'hidden',
                 }}
             >
                 <ul className="flex flex-col p-4 pt-16">
