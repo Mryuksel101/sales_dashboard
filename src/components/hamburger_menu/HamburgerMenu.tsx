@@ -33,10 +33,10 @@ const HamburgerMenu: React.FC = () => {
             ></div>
 
             <div
-                className={`left-0 w-64 h-full bg-gray-100 z-50 transition-transform rounded-r-2xl ease-in`}
+                className={`left-0 w-64 h-full bg-gray-100 z-50 rounded-r-2xl ease-in`}
                 style={{
                     position: 'fixed',
-                    transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+                    transform: isOpen ? 'translate3d(0, 0, 0)' : 'translate3d(-100%, 0, 0)',
                     transition: 'transform 150ms ease-in',
                     willChange: 'transform',
                     opacity: 0.99,
