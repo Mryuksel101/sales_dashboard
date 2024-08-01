@@ -44,6 +44,8 @@ const HamburgerMenu: React.FC = () => {
                     transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
                     transition: 'transform 150ms ease-in', // transition-transform and ease-in
                     willChange: 'transform',
+                    opacity: 0.99,
+                    backfaceVisibility: 'hidden',
                 }}
             >
                 <ul className="flex flex-col p-4 pt-16">
