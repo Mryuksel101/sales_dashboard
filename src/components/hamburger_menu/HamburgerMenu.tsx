@@ -11,7 +11,7 @@ const HamburgerMenu: React.FC = () => {
     };
 
     return (
-        <div className="md:hidden">
+        <>
             <button onClick={toggleMenu} className="text-3xl focus:outline-none p-5">
                 {isOpen ? <IoClose /> : <FaBars />}
             </button>
@@ -53,7 +53,7 @@ const HamburgerMenu: React.FC = () => {
                     }
                 </ul>
             </div>
-        </div>
+        </>
     );
 };
 
