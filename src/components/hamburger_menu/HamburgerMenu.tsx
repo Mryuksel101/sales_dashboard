@@ -28,12 +28,19 @@ const HamburgerMenu: React.FC = () => {
                 onClick={
                     toggleMenu
                 }
+                style={{
+                    willChange: 'opacity',
+                }}
+
             >
             </div>
 
             <div
                 className={`fixed top-15 left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transform-gpu transition-transform rounded-r-2xl ease-in ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
+                style={{
+                    willChange: 'transform',
+                }}
             >
                 <ul className="flex flex-col p-4 pt-16">
 
