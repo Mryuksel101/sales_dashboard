@@ -37,11 +37,13 @@ const HamburgerMenu: React.FC = () => {
             </div>
 
             <div
-                className={`fixed top-15 left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transform-gpu transition-transform rounded-r-2xl ease-in ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`left-0 w-64 h-full bg-gray-100 shadow-lg z-50 transition-transform rounded-r-2xl ease-in
                     }`}
                 style={{
+                    position: 'fixed',
+                    transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+                    transition: 'transform 150ms ease-in', // transition-transform and ease-in
                     willChange: 'transform',
-                    backfaceVisibility: 'hidden',
                 }}
             >
                 <ul className="flex flex-col p-4 pt-16">
