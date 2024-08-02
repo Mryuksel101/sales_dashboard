@@ -12,7 +12,6 @@ import Home from './pages/Home.tsx';
 import SignIn from './pages/SignIn.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
-import { getDataSales } from './services/salesDataService.ts';
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -20,7 +19,7 @@ const BrowserRouter = createBrowserRouter([
     element: <App />,
     children: [
       {
-        element: <ProtectedRoute/>,
+        element: <ProtectedRoute />,
         children: [
           {
             index: true,
@@ -28,7 +27,7 @@ const BrowserRouter = createBrowserRouter([
           },
           {
             loader: async () => {
-              return getDataSales();
+              return {}
             },
             path: "/home",
             element: <Home />,
@@ -56,7 +55,7 @@ const BrowserRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <AuthProvider>
-  <RouterProvider router={BrowserRouter}>
-  </RouterProvider>
-</AuthProvider>
+    <RouterProvider router={BrowserRouter}>
+    </RouterProvider>
+  </AuthProvider>
 )
