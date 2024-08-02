@@ -36,7 +36,7 @@ const HamburgerMenu: React.FC = () => {
                 className={`left-0 w-64 h-full bg-gray-100 z-50 rounded-r-2xl ease-in-out duration-300`}
                 style={{
                     position: 'fixed',
-                    transform: isOpen ? 'translate3d(0, 0, 0)' : 'translate3d(-100%, 0, 0)',
+                    transform: isOpen ? 'translate3d(0, 0, 0.0001px)' : 'translate3d(-100%, 0, 0.0002px)',
                     transition: 'transform 300ms ease-in-out',
                     willChange: 'transform',
                     opacity: 0.99,
