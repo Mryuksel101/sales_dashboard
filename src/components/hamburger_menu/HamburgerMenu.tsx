@@ -24,10 +24,10 @@ const HamburgerMenu: React.FC = () => {
             </button>
 
             <div
-                className={`fixed top-0 left-0 inset-0 bg-black transform-gpu transition-opacity ease-in-out duration-300 ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`fixed top-0 left-0 inset-0 bg-black transform-cpu transition-opacity ease-in-out duration-300 ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={toggleMenu}
                 style={{
-                    willChange: 'opacity',
+                    //willChange: 'opacity',
                     backfaceVisibility: 'hidden',
                     zIndex: 150,
                 }}

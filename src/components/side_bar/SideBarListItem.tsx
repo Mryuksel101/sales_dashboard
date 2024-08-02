@@ -10,7 +10,6 @@ interface SideBarListItemProps {
 
 const SideBarListItem: React.FC<SideBarListItemProps> = ({ to, label, icon }) => {
     const isActive = useLocation().pathname === to;
-
     return (
         <li className="mb-3">
             <NavLink
