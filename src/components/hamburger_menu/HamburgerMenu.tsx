@@ -29,11 +29,12 @@ const HamburgerMenu: React.FC = () => {
                 style={{
                     willChange: 'opacity',
                     backfaceVisibility: 'hidden',
+                    zIndex: 150,
                 }}
             ></div>
 
             <div
-                className={`left-0 w-64 h-full bg-gray-100 z-50 rounded-r-2xl ease-in-out duration-300`}
+                className={`left-0 w-64 h-full bg-gray-100 rounded-r-2xl ease-in-out duration-300`}
                 style={{
                     position: 'fixed',
                     transform: isOpen ? 'translate3d(0, 0, 0.0001px)' : 'translate3d(-100%, 0, 0.0002px)',
