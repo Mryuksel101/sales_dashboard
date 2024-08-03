@@ -21,7 +21,7 @@ const HamburgerMenu: React.FC = () => {
     return (
         <>
             <button onClick={toggleMenu} className="text-3xl focus:outline-none p-5">
-                {isOpen ? <IoClose /> : <FaBars />}
+                <FaBars />
             </button>
 
             {/* <div
