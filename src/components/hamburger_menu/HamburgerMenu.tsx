@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { FaBars } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
 import { sideBarListItems } from '../../constants/SideBarListItems';
 import SideBarListItem from '../side_bar/SideBarListItem';
 import './Menu.css';
