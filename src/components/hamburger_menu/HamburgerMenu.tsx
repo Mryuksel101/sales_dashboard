@@ -23,24 +23,27 @@ const HamburgerMenu: React.FC = () => {
                 {isOpen ? <IoClose /> : <FaBars />}
             </button>
 
-            <div
-                className={`fixed top-0 left-0 inset-0 bg-black z-40 transform-gpu transition-opacity ease-in ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+            {/* <div
+                className={`fixed top-0 left-0 inset-0 bg-black transform-cpu transition-opacity ease-in-out duration-300 ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={toggleMenu}
                 style={{
-                    willChange: 'opacity',
+                    //willChange: 'opacity',
                     backfaceVisibility: 'hidden',
+                    zIndex: 150,
                 }}
-            ></div>
+            ></div> */}
 
             <div
-                className={`left-0 w-64 h-full bg-gray-100 z-50 rounded-r-2xl ease-in`}
+                className={`left-0 w-64 h-full bg-gray-100 rounded-r-2xl ease-in-out duration-300`}
                 style={{
                     position: 'fixed',
-                    transform: isOpen ? 'translate3d(0, 0, 0)' : 'translate3d(-100%, 0, 0)',
-                    transition: 'transform 150ms ease-in',
-                    willChange: 'transform',
+                    transform: isOpen ? ' translateX(0)' : ' translateX(-100%)',
+                    transition: 'transform 300ms ease-in-out',
+                    //willChange: 'transform',
                     opacity: 0.99,
                     backfaceVisibility: 'hidden',
+                    perspective: '1000px',
+                    zIndex: 160,
                 }}
             >
                 <ul className="flex flex-col p-4 pt-16">
