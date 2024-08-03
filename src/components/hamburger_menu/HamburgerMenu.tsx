@@ -36,22 +36,14 @@ const HamburgerMenu: React.FC = () => {
             ></div> */}
 
             <div onClick={toggleMenu}
-                className={`menu ${isOpen ?
-                    'menu--animatable menu--visible' : ''
+                className={`menu menu--animatable ${isOpen ?
+                    ' menu--visible' : ''
 
                     }`}>
                 <div
-                    className={`left-0 w-64 h-full bg-gray-100 rounded-r-2xl ease-in-out duration-300`}
-                    style={{
-                        position: 'fixed',
-                        transform: isOpen ? ' translateX(0)' : ' translateX(-100%)',
-                        transition: 'transform 300ms ease-in-out',
-                        //willChange: 'transform',
-                        opacity: 0.99,
-                        backfaceVisibility: 'hidden',
-                        perspective: '1000px',
-                        zIndex: 160,
-                    }}
+                    className={`app-menu menu--animatable ${isOpen ?
+                        'app-menu--visible' : 'app-menu--hidden'
+                        }`}
                 >
                     <ul className="flex flex-col p-4 pt-16">
                         {memoizedItems}

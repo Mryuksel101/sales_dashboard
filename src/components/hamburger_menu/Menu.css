@@ -39,14 +39,6 @@
     transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
 } */
 
-.app-menu {
-    width: 16rem;
-    height: 100%;
-    box-shadow: none;
-    background-color: #ddd;
-    border-top-right-radius: 1rem /* 16px */;
-    border-bottom-right-radius: 1rem /* 16px */;
-}
 
 .menu--visible {
     pointer-events: auto;
@@ -59,19 +51,18 @@
 
 .app-menu {
     background-color: #fff;
-    color: #fff;
     position: relative;
     max-width: 400px;
-    width: 90%;
-    height: 100%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-    -webkit-transform: translateX(-103%);
-            transform: translateX(-103%);
     display: flex;
     flex-direction: column;
-    will-change: transform;
     z-index: 160;
-    pointer-events: auto;            
+    pointer-events: auto;
+    width: 16rem;
+    height: 100%;
+    box-shadow: none;
+    border-top-right-radius: 1rem /* 16px */;
+    border-bottom-right-radius: 1rem /* 16px */;   
+    will-change: transform;
 }
 
 .app-menu--visible {
@@ -79,7 +70,12 @@
             transform: translateX(0);
 }
 
+.app-menu--hidden {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+}
+
 .menu--animatable .app-menu {
-    transition: all 130ms ease-in;
+    transition: all 200ms ease-in;
 }
 
