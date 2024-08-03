@@ -62,7 +62,6 @@
     box-shadow: none;
     border-top-right-radius: 1rem /* 16px */;
     border-bottom-right-radius: 1rem /* 16px */;   
-    will-change: transform;
 }
 
 .app-menu--visible {
