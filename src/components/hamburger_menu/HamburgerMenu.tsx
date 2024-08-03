@@ -24,25 +24,22 @@ const HamburgerMenu: React.FC = () => {
             </button>
 
             <div
-                className={`fixed top-0 left-0 inset-0 bg-black transform-cpu transition-opacity ease-in-out duration-300 ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`fixed top-0 left-0 inset-0 bg-black transition-opacity ease-in-out duration-300 ${isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={toggleMenu}
                 style={{
-                    //willChange: 'opacity',
                     backfaceVisibility: 'hidden',
                     zIndex: 150,
                 }}
             ></div>
 
             <div
-                className={`left-0 w-64 h-full bg-gray-100 rounded-r-2xl ease-in-out duration-300`}
+                className={`fixed left-0 top-0 w-64 h-full bg-gray-100 rounded-r-2xl ease-in-out duration-300`}
                 style={{
-                    position: 'fixed',
-                    transform: isOpen ? 'translate3d(0, 0, 0.0001px)' : 'translate3d(-100%, 0, 0.0002px)',
+                    transform: isOpen ? 'scale(1)' : 'scale(0)',
+                    transformOrigin: 'left center',
                     transition: 'transform 300ms ease-in-out',
                     willChange: 'transform',
-                    opacity: 0.99,
                     backfaceVisibility: 'hidden',
-                    perspective: '1000px',
                     zIndex: 160,
                 }}
             >
