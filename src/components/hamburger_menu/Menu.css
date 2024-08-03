@@ -8,6 +8,7 @@
     pointer-events: none;
     z-index: 150;
     backface-visibility: hidden;
+    will-change: opacity;
 }
 
 .menu:after {
@@ -61,7 +62,8 @@
     height: 100%;
     box-shadow: none;
     border-top-right-radius: 1rem /* 16px */;
-    border-bottom-right-radius: 1rem /* 16px */;   
+    border-bottom-right-radius: 1rem /* 16px */;
+    will-change: transform;
 }
 
 .app-menu--visible {
