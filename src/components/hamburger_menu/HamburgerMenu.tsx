@@ -39,7 +39,7 @@ const HamburgerMenu: React.FC = () => {
                     position: 'fixed',
                     transform: isOpen ? 'translate3d(0, 0, 0.0001px)' : 'translate3d(-100%, 0, 0.0002px)',
                     transition: 'transform 300ms ease-in-out',
-                    willChange: 'transform',
+                    //willChange: 'transform',
                     opacity: 0.99,
                     backfaceVisibility: 'hidden',
                     perspective: '1000px',
