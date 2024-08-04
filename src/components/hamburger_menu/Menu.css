@@ -21,15 +21,33 @@
     background-color: rgb(0, 0, 0);
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
     backface-visibility: hidden;
 }
+
+/* .menu:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    will-change: opacity;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
+} */
+
 
 .menu--visible {
     pointer-events: auto;
 }
 
 .menu--visible.menu:after {
-    animation: fadeIn 0.3s cubic-bezier(0,0,0.3,1) 0.2s forwards;
+    opacity: 0.5;
+    pointer-events: auto;
 }
 
 .app-menu {
@@ -43,19 +61,33 @@
     width: 16rem;
     height: 100%;
     box-shadow: none;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem /* 16px */;
+    border-bottom-right-radius: 1rem /* 16px */;
     will-change: transform;
     backface-visibility: hidden;
-    transform: translate3d(-100%, 0, 0);
-    transition: transform 200ms ease-in;
 }
 
-.menu--visible .app-menu {
-    transform: translate3d(0, 0, 0);
+.app-menu--visible {
+    -webkit-transform: translate3d(0, 0, 0.0001px);
+            transform: translate3d(0, 0, 0.0001px);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 0.5; }
+.app-menu--hidden {
+    -webkit-transform: translate3d(-100%, 0, 0.0001px);
+    transform: translate3d(-100%, 0, 0.0001px);
 }
+
+.menu--animatable .app-menu {
+    transition: all 200ms ease-in;
+}
+
+
+
+/* transform: isOpen ? 'translate3d(0, 0, 0.0001px)' : 'translate3d(-100%, 0, 0.0002px)',
+transition: 'transform 300ms ease-in-out',
+willChange: 'transform',
+opacity: 0.99,
+backfaceVisibility: 'hidden',
+perspective: '1000px', */
+
+
