@@ -68,13 +68,11 @@
 }
 
 .app-menu--visible {
-    -webkit-transform: translate3d(0, 0, 0.0001px);
-            transform: translate3d(0, 0, 0.0001px);
+    left: 0;
 }
 
 .app-menu--hidden {
-    -webkit-transform: translate3d(-100%, 0, 0.0001px);
-    transform: translate3d(-100%, 0, 0.0001px);
+    left: -100%;
 }
 
 .menu--animatable .app-menu {
