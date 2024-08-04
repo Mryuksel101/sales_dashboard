@@ -21,7 +21,6 @@
     opacity: 0;
     pointer-events: none;
     backface-visibility: hidden;
-    will-change: opacity;
 }
 
 .menu--visible {
