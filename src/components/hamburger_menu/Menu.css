@@ -8,7 +8,6 @@
     pointer-events: none;
     z-index: 150;
     backface-visibility: hidden;
-    will-change: opacity;
 }
 
 .menu:after {
