@@ -4,7 +4,7 @@ import { signIn } from '../services/authService';
 
 interface AuthContextType {
     user: IUser | null;
-    signin: (user: IUser, callback?: () => void) => void;
+    signin: (user: IUser, callback?: () => void) => Promise<void>;
     signout: (callback?: () => void) => void;
 }
 
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(user);
             callback && callback();
         } catch (error: any) {
-            throw new Error(error.response?.data?.errorMessage);
+            throw error;
         }
     };
 

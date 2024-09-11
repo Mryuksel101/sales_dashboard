@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({ userName: '', password: '' });
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,15 +21,19 @@ const SignIn: React.FC = () => {
 
   const auth = useAuth();
 
-  const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
-    auth?.signin(
-      { name: formData.userName, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
-      () => {
-        // Redirect to the home page
-        navigate('/');
-        console.log('User signed in');
-      }
-    );
+  const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = async () => {
+    try {
+      await auth?.signin(
+        { name: formData.userName, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
+        () => {
+          // Redirect to the home page
+          navigate('/');
+          console.log('User signed in');
+        }
+      );
+    } catch (error: any) {
+      setErrorMessage(error.message);
+    }
   }
 
   return (
@@ -42,7 +48,7 @@ const SignIn: React.FC = () => {
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="userName"
                 value={formData.userName}
                 onChange={handleChange}
                 placeholder="Name"
@@ -83,6 +89,11 @@ const SignIn: React.FC = () => {
                 Sign In
               </button>
             </div>
+            {errorMessage && (
+              <div className="text-red-500 text-sm text-center">
+                {errorMessage}
+              </div>
+            )}
           </form>
           <div className="text-center">
             <a href="#" className="text-sm text-blue-500 hover:underline">Forgot Password?</a>
