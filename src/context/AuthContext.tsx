@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { IUser } from '../models/UserModel';
+import { signIn } from '../services/authService';
 
 interface AuthContextType {
     user: IUser | null;
@@ -12,10 +13,19 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
 
-    const signin = (newUser: IUser, callback?: () => void) => {
-        // try catch block to handle errors
-        setUser(newUser);
-        callback && callback();
+    const signin = async (formInfo: IUser, callback?: () => void) => {
+        try {
+            const signInResponse = await signIn(formInfo.name, formInfo.password);
+            const user: IUser = {
+                name: formInfo.name,
+                token: signInResponse.token,
+                password: formInfo.password
+            };
+            setUser(user);
+            callback && callback();
+        } catch (error: any) {
+            throw new Error(error.response?.data?.errorMessage);
+        }
     };
 
     const signout = (callback?: (() => void)) => {
