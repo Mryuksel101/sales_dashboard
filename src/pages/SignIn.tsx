@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";
 
 const SignIn: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ userName: '', password: '' });
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,16 +13,15 @@ const SignIn: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email:', formData.email);
     console.log('Password:', formData.password);
-    console.log('Name:', formData.name);
+    console.log('Name:', formData.userName);
   };
 
   const auth = useAuth();
 
   const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = () => {
     auth?.signin(
-      { name: formData.name, email: formData.email, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
+      { name: formData.userName, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
       () => {
         // Redirect to the home page
         navigate('/');
@@ -44,14 +43,14 @@ const SignIn: React.FC = () => {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
+                value={formData.userName}
                 onChange={handleChange}
                 placeholder="Name"
                 className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
             </div>
-            <div>
+            {/* <div>
               <input
                 type="email"
                 id="email"
@@ -62,7 +61,7 @@ const SignIn: React.FC = () => {
                 className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
                 required
               />
-            </div>
+            </div> */}
             <div>
               <input
                 type="password"
