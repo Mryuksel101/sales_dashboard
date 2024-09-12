@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({ userName: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false); // Loading state
 
   const navigate = useNavigate();
 
@@ -15,13 +16,14 @@ const SignIn: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Password:', formData.password);
-    console.log('Name:', formData.userName);
   };
 
   const auth = useAuth();
 
   const handleSignIn: React.MouseEventHandler<HTMLButtonElement> = async () => {
+    setLoading(true); // Set loading to true when sign-in starts
+    setErrorMessage(null); // Clear previous errors
+
     try {
       await auth?.signin(
         { name: formData.userName, password: formData.password, profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFEPHRDIQwZbqU-KElpgSmB2ey8f0wGsig&s" },
@@ -33,8 +35,10 @@ const SignIn: React.FC = () => {
       );
     } catch (error: any) {
       setErrorMessage(error.message);
+    } finally {
+      setLoading(false); // Set loading to false when sign-in completes (success or failure)
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200">
@@ -56,18 +60,6 @@ const SignIn: React.FC = () => {
                 required
               />
             </div>
-            {/* <div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                className="w-full px-4 py-3 rounded-full bg-gray-100 border-transparent focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-inset text-sm focus:outline-none"
-                required
-              />
-            </div> */}
             <div>
               <input
                 type="password"
@@ -85,8 +77,9 @@ const SignIn: React.FC = () => {
                 onClick={handleSignIn}
                 type="submit"
                 className="w-full bg-blue-500 text-white rounded-full px-4 py-3 font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-300"
+                disabled={loading} // Disable button when loading
               >
-                Sign In
+                {loading ? 'Giris Yapılıyor...' : 'Giris Yap'}
               </button>
             </div>
             {errorMessage && (
