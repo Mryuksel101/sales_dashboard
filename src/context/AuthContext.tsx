@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { IUser } from '../models/UserModel';
 import { signIn } from '../services/authService';
-import { MdTry } from 'react-icons/md';
 
 interface AuthContextType {
     user: IUser | null;
