@@ -1,16 +1,23 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridRowModel } from '@mui/x-data-grid';
-import { SaleHistory } from '../models/SaleHistory';
 import { useLoaderData } from 'react-router-dom';
+import { GetOrdersResponse } from '../services/orderService.ts';
 
 // Sütun tanımları
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'date', headerName: 'Tarih', width: 150 },
-  { field: 'product', headerName: 'Ürün', width: 150 },
-  { field: 'revenue', headerName: 'Gelir', width: 110 },
-  { field: 'category', headerName: 'Kategori', width: 150 },
-  { field: 'quantity', headerName: 'Adet', width: 110 },
+  { field: 'Orfiche_Ref', headerName: 'Order Ref', width: 100 },
+  { field: 'Orfiche_Date', headerName: 'Order Date', width: 180 },
+  { field: 'Orfiche_Fiche_No', headerName: 'Order Fiche No', width: 150 },
+  { field: 'Clcard_Ref', headerName: 'Client Ref', width: 100 },
+  { field: 'Clard_Defination', headerName: 'Client Name', width: 150 },
+  { field: 'Orfiche_Net_Total', headerName: 'Net Total', width: 120, type: 'number' },
+  { field: 'Branch_Nr', headerName: 'Branch No', width: 100 },
+  { field: 'Branch', headerName: 'Branch', width: 150 },
+  { field: 'WHouse_Nr', headerName: 'Warehouse No', width: 120 },
+  { field: 'Name', headerName: 'Warehouse Name', width: 150 },
+  { field: 'Orfiche_Status', headerName: 'Order Status', width: 120 },
+  { field: 'Slsman_Ref', headerName: 'Salesman Ref', width: 120 },
+  { field: 'Slsman_Defination', headerName: 'Salesman Name', width: 150 },
   {
     field: 'editableQuantity',
     headerName: 'Adet Gir',
@@ -22,8 +29,9 @@ const columns: GridColDef[] = [
   },
 ];
 
+
 const SaleHistoryDataGrid: React.FC = () => {
-  const rows: SaleHistory[] = useLoaderData() as SaleHistory[];
+  const rows: GetOrdersResponse = (useLoaderData() as GetOrdersResponse);
   const [isSaving, setIsSaving] = React.useState(false);
   const [editedRows, setEditedRows] = React.useState<GridRowModel[]>([]);
 
@@ -69,9 +77,10 @@ const SaleHistoryDataGrid: React.FC = () => {
     }}>
       <DataGrid
         loading={isSaving}
-        rows={rows}
+        rows={rows.Orders}
         columns={columns}
         processRowUpdate={processRowUpdate}
+        getRowId={(row) => row.Orfiche_Ref}
         sx={
           {
             '& .MuiDataGrid-cell--editable': {

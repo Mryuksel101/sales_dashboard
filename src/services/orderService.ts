@@ -19,7 +19,7 @@ interface Order {
     Slsman_Defination: string;
 }
 
-interface GetOrdersResponse {
+export interface GetOrdersResponse {
     Orders: Order[];
     TotalCount: number;
 }
