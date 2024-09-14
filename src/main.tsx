@@ -14,6 +14,7 @@ import ProtectedRoute from './components/ProtectedRoute.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
 import { getOrders } from './services/orderService.ts';
 import { getCookie } from './services/authService.ts';
+import OrderDetail from './pages/OrderDetail.tsx';
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -37,6 +38,14 @@ const BrowserRouter = createBrowserRouter([
             },
             path: "/home",
             element: <Home />,
+            children: [
+              {
+                element: <OrderDetail onClose={function (): void {
+                  throw new Error('Function not implemented.');
+                }} />,
+                path: "deneme",
+              }
+            ]
           },
           {
             path: "/about",

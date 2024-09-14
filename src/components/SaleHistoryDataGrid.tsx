@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridRowModel } from '@mui/x-data-grid';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { GetOrdersResponse } from '../services/orderService.ts';
 
 // Sütun tanımları
@@ -34,6 +34,8 @@ const SaleHistoryDataGrid: React.FC = () => {
   const rows: GetOrdersResponse = (useLoaderData() as GetOrdersResponse);
   const [isSaving, setIsSaving] = React.useState(false);
   const [editedRows, setEditedRows] = React.useState<GridRowModel[]>([]);
+  const navigate = useNavigate();
+
 
   const processRowUpdate = React.useCallback(
     (newRow: GridRowModel, oldRow: GridRowModel) => {
@@ -81,6 +83,14 @@ const SaleHistoryDataGrid: React.FC = () => {
         columns={columns}
         processRowUpdate={processRowUpdate}
         getRowId={(row) => row.Orfiche_Ref}
+        onCellClick={
+          (params) => {
+            if (params.field === 'Orfiche_Ref') {
+              navigate(`/home/deneme`);
+              //navigate(`/order/${params.row.Orfiche_Ref}`);
+            }
+          }
+        }
         sx={
           {
             '& .MuiDataGrid-cell--editable': {
