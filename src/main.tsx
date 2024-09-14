@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
+  useNavigate,
 } from "react-router-dom";
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
@@ -15,7 +16,6 @@ import { AuthProvider } from './context/AuthContext.tsx';
 import { getOrders } from './services/orderService.ts';
 import { getCookie } from './services/authService.ts';
 import OrderDetail from './pages/OrderDetail.tsx';
-
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
@@ -41,7 +41,6 @@ const BrowserRouter = createBrowserRouter([
             children: [
               {
                 element: <OrderDetail onClose={function (): void {
-                  throw new Error('Function not implemented.');
                 }} />,
                 path: "deneme",
               }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/OrderDetail.css';
+import { useNavigate } from 'react-router-dom';
 
 interface OrderDetailProps {
     onClose: () => void;
@@ -7,6 +8,7 @@ interface OrderDetailProps {
 
 const OrderDetail: React.FC<OrderDetailProps> = ({ onClose }) => {
     const [closing, setClosing] = useState(false);
+    const navigate = useNavigate();
 
     const handleClose = () => {
         // Kapatma animasyonunu başlat
@@ -14,7 +16,7 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ onClose }) => {
 
         // Animasyonun tamamlanmasını bekleyip onClose çağır
         setTimeout(() => {
-            //onClose();
+            navigate("/home");
         }, 300); // 300ms animasyon süresi ile aynı olmalı
     };
 
