@@ -19,7 +19,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             const user: IUser = {
                 name: formInfo.name,
                 token: signInResponse.token,
-                password: formInfo.password
+                password: formInfo.password,
+                profilePicture: "https://img.icons8.com/?size=100&id=nRzhHJR1Gh7F&format=png&color=000000"
             };
             setUser(user);
             callback && callback();
