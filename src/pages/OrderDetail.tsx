@@ -3,6 +3,7 @@ import '../styles/OrderDetail.css';
 import { useNavigate } from 'react-router-dom';
 import { OrderDetail } from '../models/OrderDetailModel';
 import { getOrderDetails } from '../services/orderDetailService';
+import { getCookie } from '../services/cookieService';
 
 
 interface OrderDetailProps {
@@ -30,8 +31,13 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
     useEffect(() => {
         const fetchOrderDetails = async () => {
             try {
+                const token = getCookie("token");
+                if (token == null) {
+                    throw Error("token is null");
+                }
                 const response = await getOrderDetails({
-                    OrficheRef: 1, //
+                    OrficheRef: 1,
+                    token: token,
                     paggingSetting: {
                         start: 0,
                         length: 10
@@ -44,7 +50,6 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                 setLoading(false);
             }
         };
-
         fetchOrderDetails();
     }, []);
 

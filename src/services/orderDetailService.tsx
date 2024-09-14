@@ -6,6 +6,7 @@ const API_URL = 'http://192.168.0.247/OrderDetail';
 
 interface OrderDetailParams {
     OrficheRef: number;
+    token: String;
     paggingSetting: {
         start: number;
         length: number;
@@ -15,6 +16,9 @@ interface OrderDetailParams {
 export const getOrderDetails = async (params: OrderDetailParams): Promise<GetOrderDetailsResponse> => {
     try {
         const response = await axios.get<GetOrderDetailsResponse>(API_URL, {
+            headers: {
+                Authorization: `Bearer ${params.token}`, // Token'ı Authorization header'ına ekliyoruz
+            },
             params: {
                 OrficheRef: params.OrficheRef,
                 'paggingSetting.start': params.paggingSetting.start,

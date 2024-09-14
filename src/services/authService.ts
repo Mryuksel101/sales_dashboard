@@ -9,7 +9,7 @@ interface SignInResponse {
 }
 
 
-export const signIn = async (userName: string, password: string): Promise<SignInResponse> => {
+export const signIn = async (userName: string, password: string,): Promise<SignInResponse> => {
     try {
         const response = await axios.post<SignInResponse>(API_URL, {
             userName,
