@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridRowModel } from '@mui/x-data-grid';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import { GetOrdersResponse } from '../services/orderService.ts';
+import { GetOrdersResponse } from '../services/ordersService.ts';
 
 // Sütun tanımları
 const columns: GridColDef[] = [

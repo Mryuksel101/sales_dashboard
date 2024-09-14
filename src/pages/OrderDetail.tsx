@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/OrderDetail.css';
 import { useNavigate } from 'react-router-dom';
+import { OrderDetail } from '../models/OrderDetailModel';
+import { getOrderDetails } from '../services/orderDetailService';
+
 
 interface OrderDetailProps {
     onClose: () => void;
 }
 
-const OrderDetail: React.FC<OrderDetailProps> = ({ onClose }) => {
+const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
     const [closing, setClosing] = useState(false);
+    const [orderDetails, setOrderDetails] = useState<OrderDetail[] | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
     const navigate = useNavigate();
 
     const handleClose = () => {
@@ -20,6 +27,27 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ onClose }) => {
         }, 300); // 300ms animasyon süresi ile aynı olmalı
     };
 
+    useEffect(() => {
+        const fetchOrderDetails = async () => {
+            try {
+                const response = await getOrderDetails({
+                    OrficheRef: 1, //
+                    paggingSetting: {
+                        start: 0,
+                        length: 10
+                    }
+                });
+                setOrderDetails(response.OrderDetails);
+            } catch (error: any) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchOrderDetails();
+    }, []);
+
     return (
         <div className={`bottom-sheet ${closing ? 'closing' : ''}`}>
             <div className="sheet-content">
@@ -31,4 +59,4 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ onClose }) => {
     );
 };
 
-export default OrderDetail;
+export default OrderDetailPage;

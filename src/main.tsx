@@ -13,9 +13,9 @@ import Home from './pages/Home.tsx';
 import SignIn from './pages/SignIn.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
-import { getOrders } from './services/orderService.ts';
+import { getOrders } from './services/ordersService.ts';
 import { getCookie } from './services/authService.ts';
-import OrderDetail from './pages/OrderDetail.tsx';
+import OrderDetailPage from './pages/OrderDetail.tsx';
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
@@ -40,7 +40,7 @@ const BrowserRouter = createBrowserRouter([
             element: <Home />,
             children: [
               {
-                element: <OrderDetail onClose={function (): void {
+                element: <OrderDetailPage onClose={function (): void {
                 }} />,
                 path: "deneme",
               }
