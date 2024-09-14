@@ -42,7 +42,7 @@ const BrowserRouter = createBrowserRouter([
               {
                 element: <OrderDetailPage onClose={function (): void {
                 }} />,
-                path: "deneme",
+                path: "order/:id",  // Dinamik route düzenlemesi
               }
             ]
           },

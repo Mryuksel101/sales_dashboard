@@ -86,8 +86,8 @@ const SaleHistoryDataGrid: React.FC = () => {
         onCellClick={
           (params) => {
             if (params.field === 'Orfiche_Ref') {
-              navigate(`/home/deneme`);
-              //navigate(`/order/${params.row.Orfiche_Ref}`);
+              //navigate(`/home/deneme`);
+              navigate(`/home/order/${params.row.Orfiche_Ref}`);
             }
           }
         }

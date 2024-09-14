@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/OrderDetail.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { OrderDetail } from '../models/OrderDetailModel';
 import { getOrderDetails } from '../services/orderDetailService';
 import { getCookie } from '../services/cookieService';
@@ -17,6 +17,8 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
     const [error, setError] = useState<string | null>(null);
 
     const navigate = useNavigate();
+    const { id } = useParams(); // URL'den id parametresini yakalıyoruz
+
 
     const handleClose = () => {
         // Kapatma animasyonunu başlat
@@ -36,7 +38,7 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                     throw Error("token is null");
                 }
                 const response = await getOrderDetails({
-                    OrficheRef: 1,
+                    OrficheRef: Number(id),
                     token: token,
                     paggingSetting: {
                         start: 0,
