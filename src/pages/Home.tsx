@@ -1,7 +1,7 @@
 // Home.tsx
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import SaleHistoryDataGrid from '../components/SaleHistoryDataGrid';
+import OrdersDataGrid from '../components/ordersDataGrid';
 import { Outlet } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
         <p className="text-xl">Welcome, <span className="font-semibold">{name}</span>!</p>
       </div>
       <p className='mb-8 mt-1'>Welcome to the home page!</p>
-      <SaleHistoryDataGrid />
+      <OrdersDataGrid />
     </div>
   );
 };
