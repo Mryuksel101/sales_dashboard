@@ -5,7 +5,6 @@ import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
-  useNavigate,
 } from "react-router-dom";
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
