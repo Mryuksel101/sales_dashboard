@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/OrderDetail.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { OrderDetail } from '../models/OrderDetailModel';
+import { GetOrderDetailsResponse } from '../models/OrderDetailModel';
 import { getOrderDetails } from '../services/orderDetailService';
 import { getCookie } from '../services/cookieService';
+import OrderDetailsDataGrid from '../components/orderDetailsDataGrid';
+import { CgClose } from "react-icons/cg";
+
 
 
 interface OrderDetailProps {
@@ -12,7 +15,7 @@ interface OrderDetailProps {
 
 const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
     const [closing, setClosing] = useState(false);
-    const [orderDetails, setOrderDetails] = useState<OrderDetail[] | null>(null);
+    const [orderDetails, setOrderDetails] = useState<GetOrderDetailsResponse | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -45,7 +48,7 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                         length: 10
                     }
                 });
-                setOrderDetails(response.OrderDetails);
+                setOrderDetails(response);
             } catch (error: any) {
                 setError(error.message);
             } finally {
@@ -58,9 +61,15 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
     return (
         <div className={`bottom-sheet ${closing ? 'closing' : ''}`}>
             <div className="sheet-content">
-                <button onClick={handleClose} className="close-btn">×</button>
+                <button onClick={handleClose} className="close-btn">
+                    <CgClose size={24} />
+
+                </button>
                 <h1>Order Details</h1>
-                {/* Order detaylarını burada göster */}
+                <OrderDetailsDataGrid
+                    orderDetailsResponse={orderDetails ?? { OrderDetails: [], TotalCount: 0 }}
+                    loading={loading}
+                />
             </div>
         </div>
     );

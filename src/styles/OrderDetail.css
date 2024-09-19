@@ -21,14 +21,14 @@
 
 .sheet-content h1 {
     font-weight: bold; /* Makes the font weight bold */
+    font-size: 22px; /* Adjust size of the title */    
 }
 
 .close-btn {
     position: absolute;
     top: 16px;
     right: 16px;
-    background-color: rgb(169, 169, 169);
-    color: #fff;
+    color: #000000;
     border: none;
     width: 36px; /* Size of the button */
     height: 36px; /* Size of the button */
