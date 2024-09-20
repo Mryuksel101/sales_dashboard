@@ -81,8 +81,9 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                 </button>
                 <h1>Order Details</h1>
 
-                {/* Add instructional text for pressing Esc */}
-                <p className="esc-instruction">Press Esc to exit</p>
+                <p className="esc-instruction">
+                    Çıkmak için <kbd>ESC</kbd>'ye basın
+                </p>
 
                 <OrderDetailsDataGrid
                     orderDetailsResponse={orderDetails ?? { OrderDetails: [], TotalCount: 0 }}
