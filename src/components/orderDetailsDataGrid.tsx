@@ -17,7 +17,7 @@ const OrderDetailsDataGrid: React.FC<OrderDetailsDataGridProps> = ({ orderDetail
                 loading={loading}
                 rows={orderDetailsResponse.OrderDetails}
                 columns={orderDetailsColumns}
-                getRowId={(row: OrderDetail) => row.Indirim} // Unique ID
+                getRowId={(row: OrderDetail) => row.id} // Unique ID
 
 
             />

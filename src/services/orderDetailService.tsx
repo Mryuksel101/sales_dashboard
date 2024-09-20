@@ -26,6 +26,13 @@ export const getOrderDetails = async (params: OrderDetailParams): Promise<GetOrd
             }
         });
 
+        response.data.OrderDetails = response.data.OrderDetails.map((orderDetail, index) => {
+            return {
+                ...orderDetail,
+                id: index + 1,
+            };
+        });
+
         return response.data;
     } catch (error: any) {
         if (axios.isAxiosError(error)) {

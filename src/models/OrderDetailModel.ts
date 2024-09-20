@@ -1,5 +1,6 @@
 // types/order.ts
 export interface OrderDetail {
+    id: number;
     Cari_Hesap_Kodu: string;
     Unvan: string;
     CH_Ozel_Kod: string;
