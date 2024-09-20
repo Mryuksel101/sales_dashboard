@@ -12,7 +12,7 @@ interface OrderDetailsDataGridProps {
 const OrderDetailsDataGrid: React.FC<OrderDetailsDataGridProps> = ({ orderDetailsResponse, loading }) => {
     //const data: GetOrderDetailsResponse = (useLoaderData() as GetOrderDetailsResponse);
     return (
-        <div style={{ height: 'calc(-90px + 100vh)', width: '100%', paddingTop: '16px' }}>
+        <div style={{ height: 'calc(-104px + 100vh)', width: '100%', paddingTop: '16px' }}>
             <DataGrid
                 loading={loading}
                 rows={orderDetailsResponse.OrderDetails}

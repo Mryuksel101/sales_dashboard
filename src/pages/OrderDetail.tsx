@@ -7,8 +7,6 @@ import { getCookie } from '../services/cookieService';
 import OrderDetailsDataGrid from '../components/orderDetailsDataGrid';
 import { CgClose } from "react-icons/cg";
 
-
-
 interface OrderDetailProps {
     onClose: () => void;
 }
@@ -21,7 +19,6 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
 
     const navigate = useNavigate();
     const { id } = useParams(); // URL'den id parametresini yakalıyoruz
-
 
     const handleClose = () => {
         // Kapatma animasyonunu başlat
@@ -55,7 +52,25 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                 setLoading(false);
             }
         };
+
         fetchOrderDetails();
+    }, [id]);
+
+    // Listen for "Escape" key to close the modal
+    useEffect(() => {
+        const handleEscKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                handleClose();
+            }
+        };
+
+        // Add event listener for keydown
+        document.addEventListener('keydown', handleEscKey);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            document.removeEventListener('keydown', handleEscKey);
+        };
     }, []);
 
     return (
@@ -63,9 +78,12 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
             <div className="sheet-content">
                 <button onClick={handleClose} className="close-btn">
                     <CgClose size={24} />
-
                 </button>
                 <h1>Order Details</h1>
+
+                {/* Add instructional text for pressing Esc */}
+                <p className="esc-instruction">Press Esc to exit</p>
+
                 <OrderDetailsDataGrid
                     orderDetailsResponse={orderDetails ?? { OrderDetails: [], TotalCount: 0 }}
                     loading={loading}
