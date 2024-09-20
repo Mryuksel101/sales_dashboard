@@ -12,7 +12,7 @@ export const orderDetailsColumns: GridColDef[] = [
     { field: 'Orfiche_No', headerName: 'Orfiche No', width: 150, type: 'number' },
     { field: 'Fatura_Turu', headerName: 'Fatura Türü', width: 150, type: 'number' },
     { field: 'Fatura_No', headerName: 'Fatura No', width: 150 },
-    { field: 'Tarih', headerName: 'Tarih', width: 150, type: 'date', valueFormatter: (params: any) => new Date(params.value).toLocaleDateString() },
+    { field: 'Tarih', headerName: 'Tarih', width: 150, },
     { field: 'Ay', headerName: 'Ay', width: 100 },
     { field: 'Ambar_No', headerName: 'Ambar No', width: 120, type: 'number' },
     { field: 'Ambar_Adi', headerName: 'Ambar Adı', width: 150 },

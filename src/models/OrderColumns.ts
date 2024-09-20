@@ -3,7 +3,7 @@ import { GridColDef } from '@mui/x-data-grid';
 
 export const orderColumns: GridColDef[] = [
     { field: 'Orfiche_Ref', headerName: 'Orfiche Ref', width: 100 },
-    { field: 'Orfiche_Date', headerName: 'Orfiche Date', width: 180 },
+    { field: 'Orfiche_Date', headerName: 'Orfiche Date', width: 180, },
     { field: 'Orfiche_Fiche_No', headerName: 'Orfiche No', width: 150 },
     { field: 'Clcard_Ref', headerName: 'Client Ref', width: 100 },
     { field: 'Clard_Defination', headerName: 'Client Name', width: 150 },
