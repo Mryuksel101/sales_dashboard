@@ -37,6 +37,10 @@ const BrowserRouter = createBrowserRouter([
             },
             path: "/home",
             element: <Home />,
+            shouldRevalidate: () => {
+              // return nextUrl.pathname === '/home'; // sadece /home path'inde loader çalışsın
+              return false;
+            },
             children: [
               {
                 element: <OrderDetailPage onClose={function (): void {
