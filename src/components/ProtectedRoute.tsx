@@ -4,7 +4,7 @@ import { getCookie } from '../services/authService';
 const ProtectedRoute = (): JSX.Element => {
   const navigation = useNavigation();
   if (navigation.state === 'loading') {
-    return <p>Loading...</p>;
+    return <p>Yükleniyor...</p>;
   }
 
   // Token yoksa kullanıcıyı giriş sayfasına yönlendir
