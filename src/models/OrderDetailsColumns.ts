@@ -7,6 +7,15 @@ export const orderDetailsColumns: GridColDef[] = [
     { field: 'teslim_Edilen_Miktar', headerName: 'Teslim Edilen Miktar', width: 150, align: 'center' },
     { field: 'bekleyen_Miktar', headerName: 'Bekleyen Miktar', width: 150, align: 'center' },
     { field: 'birim', headerName: 'Birim', width: 60, align: 'center' },
+    {
+        field: 'editableQuantity',
+        headerName: 'Adet Gir',
+        width: 150,
+        editable: true,
+        type: 'number',
+        align: 'center',
+        description: 'Adet Giriniz',
+    },
 
 ];
 
