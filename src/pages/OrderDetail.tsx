@@ -86,7 +86,7 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                 </p>
 
                 <OrderDetailsDataGrid
-                    orderDetailsResponse={orderDetails ?? { OrderDetails: [], TotalCount: 0 }}
+                    orderDetailsResponse={orderDetails ?? { orderDetails: [], totalCount: 0 }}
                     loading={loading}
                 />
             </div>

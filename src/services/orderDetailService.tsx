@@ -26,10 +26,10 @@ export const getOrderDetails = async (params: OrderDetailParams): Promise<GetOrd
             }
         });
 
-        response.data.OrderDetails = response.data.OrderDetails.map((orderDetail, index) => {
+        response.data.orderDetails = response.data.orderDetails.map((orderDetail, index) => {
             return {
                 ...orderDetail,
-                Tarih: new Date(orderDetail.Tarih).toLocaleString('tr-TR', {
+                Tarih: new Date(orderDetail.tarih).toLocaleString('tr-TR', {
                     day: '2-digit',    // Day in 2-digit format
                     month: '2-digit',  // Month in 2-digit format
                     year: 'numeric',   // Full year
