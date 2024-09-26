@@ -1,21 +1,21 @@
 import { GridColDef } from '@mui/x-data-grid';
 
 export const orderDetailsColumns: GridColDef[] = [
-    { field: 'stok_Kodu', headerName: 'Stok Kodu', width: 150, align: 'center' },
-    { field: 'aciklama', headerName: 'Açıklama', width: 200, align: 'center' },
-    { field: 'miktar', headerName: 'Miktar', width: 60, align: 'center' },
-    { field: 'teslim_Edilen_Miktar', headerName: 'Teslim Edilen Miktar', width: 150, align: 'center' },
-    { field: 'bekleyen_Miktar', headerName: 'Bekleyen Miktar', width: 150, align: 'center' },
-    { field: 'birim', headerName: 'Birim', width: 60, align: 'center' },
+    { field: 'stok_Kodu', headerName: 'Stok Kodu', width: 220, align: 'left', },
+    { field: 'aciklama', headerName: 'Açıklama', width: 250, align: 'left' },
+    { field: 'miktar', headerName: 'Miktar', width: 100, align: 'right' },
+    { field: 'teslim_Edilen_Miktar', headerName: 'Teslim Edilen Miktar', width: 160, align: 'right' },
+    { field: 'bekleyen_Miktar', headerName: 'Bekleyen Miktar', width: 160, align: 'right' },
+    { field: 'birim', headerName: 'Birim', width: 80, align: 'center' },
     {
         field: 'editableQuantity',
         headerName: 'Adet Gir',
-        width: 150,
+        width: 130,
         editable: true,
         type: 'number',
-        align: 'center',
+        align: 'right',
         description: 'Adet Giriniz',
     },
-
 ];
+
 
