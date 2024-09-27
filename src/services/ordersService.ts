@@ -32,8 +32,24 @@ export const getOrders = async (token: string): Promise<GetOrdersResponse> => {
                 Authorization: `Bearer ${token}`, // Token'ı Authorization header'ına ekliyoruz
             },
         });
+        // foormat date day mounth year, hour, minute, second
+        response.data.Orders = response.data.Orders.map((order, index) => {
+            return {
+                ...order,
+                Orfiche_Date: new Date(order.Orfiche_Date).toLocaleString('tr-TR', {
+                    day: '2-digit',    // Day in 2-digit format
+                    month: '2-digit',  // Month in 2-digit format
+                    year: 'numeric',   // Full year
+                    hour: '2-digit',   // Hour in 2-digit format
+                    minute: '2-digit', // Minute in 2-digit format
+                    second: '2-digit', // Second in 2-digit format (optional)
+                    hour12: false      // Use 24-hour format
+                }),
+            };
+        }
+        );
+        return response.data;
 
-        return response.data; // Response içindeki veriyi dönüyoruz
     } catch (error) {
         if (axios.isAxiosError(error)) {
             throw new Error(error.response?.data?.errorMessage || 'Error while fetching orders');
