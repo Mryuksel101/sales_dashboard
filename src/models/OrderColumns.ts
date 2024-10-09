@@ -11,13 +11,4 @@ export const orderColumns: GridColDef[] = [
     { field: 'Orfiche_Status', headerName: 'Sipariş Durumu', width: 150, align: 'center' },
     { field: 'Slsman_Ref', headerName: 'Satış Temsilcisi Ref', width: 150, align: 'left' },
     { field: 'Slsman_Defination', headerName: 'Satış Temsilcisi Adı', width: 200, align: 'left' },
-    {
-        field: 'editableQuantity',
-        headerName: 'Adet Gir',
-        width: 120,
-        editable: true,
-        type: 'number',
-        align: 'right',
-        description: 'Adet Giriniz',
-    },
 ];

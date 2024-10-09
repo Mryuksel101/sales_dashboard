@@ -88,15 +88,6 @@ const OrdersDataGrid: React.FC = () => {
           }
         }
       />
-      <button
-        onClick={handleApiCall}
-        style={{ marginTop: '40px', marginBottom: '20px' }}
-        className={`rounded-3xl bg-blue-500 px-9 py-3 text-base leading-tight text-white ${isSaving ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-600'} focus:ring-2`}
-        disabled={isSaving} // Saving durumunda butonu devre dışı bırak
-      >
-        {isSaving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}
-      </button>
-
     </div >
   );
 };
