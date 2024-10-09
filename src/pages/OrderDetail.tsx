@@ -38,7 +38,7 @@ const OrderDetailPage: React.FC<OrderDetailProps> = ({ onClose }) => {
                     throw Error("token is null");
                 }
                 const response = await getOrderDetails({
-                    OrficheRef: Number(id),
+                    OrficheNo: id!,
                     token: token,
                     paggingSetting: {
                         start: 0,

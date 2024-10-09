@@ -5,7 +5,7 @@ import { GetOrderDetailsResponse } from '../models/OrderDetailModel';
 const API_URL = 'http://192.168.0.247/OrderDetail';
 
 interface OrderDetailParams {
-    OrficheRef: number;
+    OrficheNo: String;
     token: String;
     paggingSetting: {
         start: number;
@@ -20,7 +20,7 @@ export const getOrderDetails = async (params: OrderDetailParams): Promise<GetOrd
                 Authorization: `Bearer ${params.token}`, // Token'ı Authorization header'ına ekliyoruz
             },
             params: {
-                OrficheRef: params.OrficheRef,
+                OrficheNo: params.OrficheNo,
                 'paggingSetting.start': params.paggingSetting.start,
                 'paggingSetting.length': params.paggingSetting.length
             }

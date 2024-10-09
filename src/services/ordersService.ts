@@ -3,7 +3,8 @@ import axios from 'axios';
 const API_URL = 'http://192.168.0.247/Order';
 
 // Response tiplerini tanımlıyoruz
-interface Order {
+export interface Order {
+    editableQuantity: number;
     Orfiche_Ref: number;
     Orfiche_Date: string;
     Orfiche_Fiche_No: string;

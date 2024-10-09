@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { DataGrid, GridRowModel } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams, GridRowModel } from '@mui/x-data-grid';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { GetOrdersResponse } from '../services/ordersService.ts';
 import { orderColumns } from '../models/OrderColumns.ts';
+import { Order } from '../services/ordersService.ts';
 
 const OrdersDataGrid: React.FC = () => {
   const rows: GetOrdersResponse = (useLoaderData() as GetOrdersResponse);
@@ -12,16 +13,16 @@ const OrdersDataGrid: React.FC = () => {
 
 
   const processRowUpdate = React.useCallback(
-    (newRow: GridRowModel, oldRow: GridRowModel) => {
+    (newRow: GridRowModel<Order>, oldRow: GridRowModel<Order>) => {
       // Editable text'e girilen sayı Row'daki adetten büyük olmaması için kontrol
-      const isValueValid = Number(oldRow.quantity) <= newRow.editableQuantity;
+      const isValueValid = Number(oldRow.editableQuantity) <= newRow.editableQuantity;
       if (isValueValid) {
-        alert('Girilen değer, mevcut adetten büyük olamaz. Mevcut değer şu anda: ' + oldRow.quantity);
+        alert('Girilen değer, mevcut adetten büyük olamaz. Mevcut değer şu anda: ' + oldRow.editableQuantity);
         return oldRow;
       }
       setEditedRows((prevState) => {
         const newState = [...prevState];
-        const index = newState.findIndex((row) => row.id === newRow.id);
+        const index = newState.findIndex((row) => row.Orfiche_Fiche_No === newRow.Orfiche_Fiche_No);
         if (index === -1) {
           newState.push(newRow);
         } else {
@@ -34,18 +35,6 @@ const OrdersDataGrid: React.FC = () => {
     []
   );
 
-  const handleApiCall = () => {
-    // API çağrısı burada yapılacak
-    console.log('API çağrısı yapılıyor...', editedRows);
-    // Örnek: axios.post('/api/update', editedRows);
-
-    setIsSaving(true); // Saving durumunu başlat
-    // 2 saniye bekleyin
-    setTimeout(() => {
-      setIsSaving(false); // Saving durumunu durdur
-    }, 2000);
-  };
-
   return (
     <div style={{
       height: 'calc(100vh - 252px)',
@@ -56,12 +45,12 @@ const OrdersDataGrid: React.FC = () => {
         rows={rows.Orders}
         columns={orderColumns}
         processRowUpdate={processRowUpdate}
-        getRowId={(row) => row.Orfiche_Ref}
+        getRowId={(row: Order) => row.Orfiche_Fiche_No}
         onCellClick={
-          (params) => {
-            if (params.field === 'Orfiche_Ref') {
+          (params: GridCellParams<Order>) => {
+            if (params.field === 'Orfiche_Fiche_No') {
               //navigate(`/home/deneme`);
-              navigate(`/home/order/${params.row.Orfiche_Ref}`);
+              navigate(`/home/order/${params.row.Orfiche_Fiche_No}`);
             }
           }
         }
