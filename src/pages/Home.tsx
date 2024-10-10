@@ -8,7 +8,7 @@ import adminAvatar from '../assets/admin.png'; // Admin avatarını import et
 const Home: React.FC = () => {
   const auth = useAuth();
   // Assuming `auth.user` has `name` and `avatarUrl` properties
-  const { name, profilePicture } = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
+  const { name } = auth?.user || { name: 'Guest', profiePicture: 'default_avatar_url' };
 
   return (
     <div>
