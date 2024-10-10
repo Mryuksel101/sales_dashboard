@@ -7,33 +7,7 @@ import { Order } from '../services/ordersService.ts';
 
 const OrdersDataGrid: React.FC = () => {
   const rows: GetOrdersResponse = (useLoaderData() as GetOrdersResponse);
-  const [isSaving, setIsSaving] = React.useState(false);
-  const [editedRows, setEditedRows] = React.useState<GridRowModel[]>([]);
   const navigate = useNavigate();
-
-
-  const processRowUpdate = React.useCallback(
-    (newRow: GridRowModel<Order>, oldRow: GridRowModel<Order>) => {
-      // Editable text'e girilen sayı Row'daki adetten büyük olmaması için kontrol
-      const isValueValid = Number(oldRow.editableQuantity) <= newRow.editableQuantity;
-      if (isValueValid) {
-        alert('Girilen değer, mevcut adetten büyük olamaz. Mevcut değer şu anda: ' + oldRow.editableQuantity);
-        return oldRow;
-      }
-      setEditedRows((prevState) => {
-        const newState = [...prevState];
-        const index = newState.findIndex((row) => row.Orfiche_Fiche_No === newRow.Orfiche_Fiche_No);
-        if (index === -1) {
-          newState.push(newRow);
-        } else {
-          newState[index] = newRow;
-        }
-        return newState;
-      });
-      return newRow;
-    },
-    []
-  );
 
   return (
     <div style={{
@@ -41,10 +15,8 @@ const OrdersDataGrid: React.FC = () => {
       width: '100%'
     }}>
       <DataGrid
-        loading={isSaving}
         rows={rows.Orders}
         columns={orderColumns}
-        processRowUpdate={processRowUpdate}
         getRowId={(row: Order) => row.Orfiche_Fiche_No}
         onCellClick={
           (params: GridCellParams<Order>) => {
